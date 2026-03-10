@@ -8,35 +8,32 @@ import java.util.stream.*;
 
 public class SumOfSalary {
 
-   public  static void main(String[] args) {
+    public static void main(String[] args) {
 
 
-       //Function
-        Function<Integer, Integer>  doubleIt = x -> 2*x;
+        Function<Integer, Integer> doubleIt = x -> 2 * x;
         System.out.println(doubleIt.apply(100));
 
-        //consumer
-       Consumer<Integer> consumer =  x -> System.out.println(x);
+        Consumer<Integer> consumer = x -> System.out.println(x);
 
-       //Method reference
-       List<String> lst= Arrays.asList("Abhay", "Pratap", "Singh");
-       lst.forEach(x -> System.out.println(x));
-      lst.forEach(System.out::println);    //method ko as a perimeter de rahe h
+
+        List<String> lst = Arrays.asList("Abhay", "Pratap", "Singh");
+        lst.forEach(x -> System.out.println(x));
+        lst.forEach(System.out::println);   // method ko as a parameter de rahe h
+
+        List<String> name = Arrays.asList("Abhay", "Pratap", "Singh");
+        List<MobilePhone> mobilePhoneList = name.stream()
+                .map(MobilePhone::new)
+                .collect(Collectors.toList());
+
+        mobilePhoneList.forEach(x -> System.out.println(x.name));
     }
-
-    //constructor reference
-    List<String> name= Arrays.asList("Abhay", "Pratap", "Singh");
-        List<MobilePhone> mobilePhoneList = name.stream().map(MobilePhone::new).collect(Collectors.toList());
-
-
 }
 
-class MobilePhone{
-    String name ;
+class MobilePhone {
+    String name;
 
-    public MobilePhone(String name){
+    public MobilePhone(String name) {
         this.name = name;
-
     }
-
 }
