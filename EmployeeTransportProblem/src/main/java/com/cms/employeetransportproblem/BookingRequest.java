@@ -30,7 +30,7 @@ public class BookingRequest {
     public LocalDate getDate() {
         return date;
     }
-
+//here we are setting the date
     public void setDate(LocalDate date) {
         this.date = date;
     }
