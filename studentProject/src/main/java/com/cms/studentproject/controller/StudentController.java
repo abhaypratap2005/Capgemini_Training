@@ -39,7 +39,7 @@ public class StudentController {
         existing.setCourse(student.getCourse());
 
         return repo.save(existing);
-
+    
     }
 
     @DeleteMapping("/{id}")

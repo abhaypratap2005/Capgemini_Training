@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 public class Student {
@@ -13,7 +14,10 @@ public class Student {
 
     private long id;
 
+    @NotBlank
     private String name;
+
+    @NotBlank
     private String course;
 
     public Student(String name, String course){
