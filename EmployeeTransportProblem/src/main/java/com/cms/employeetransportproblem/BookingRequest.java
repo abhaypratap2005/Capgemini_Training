@@ -26,7 +26,7 @@ public class BookingRequest {
     public void setCabId(Long cabId) {
         this.cabId = cabId;
     }
-
+// here we are getting the local date
     public LocalDate getDate() {
         return date;
     }
