@@ -18,7 +18,7 @@ public class DepartmentController {
     public List<Department> getAll() {
         return service.getAllDepartments();
     }
-
+  //remember to check the call
     @GetMapping("/name/{name}")
     public List<Department> getByName(@PathVariable String name) {
         return service.getByDepartmentName(name);
