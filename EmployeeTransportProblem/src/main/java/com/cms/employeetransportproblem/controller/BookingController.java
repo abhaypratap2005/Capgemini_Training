@@ -4,11 +4,14 @@ package com.cms.employeetransportproblem.controller;
 import com.cms.employeetransportproblem.BookingRequest;
 import com.cms.employeetransportproblem.model.Booking;
 import com.cms.employeetransportproblem.service.BookingService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+
 
 @RestController
 @RequestMapping("/booking")
@@ -16,7 +19,16 @@ import java.time.LocalDate;
 
 public class BookingController {
 
-    @Autowired
+//    Logger logger  =  LoggerFactory.getLogger(BookingController.class);
+//public Booking createBooking(Booking booking){
+//    logger.info("CreatingInfo.....INFO");
+//    logger.info("BookingCab....INFO");
+//    logger.info("CreatingCab.....DEBUG");
+//    return booking;
+//}
+
+
+
     private BookingService service;
 
     @PostMapping("/allocate")

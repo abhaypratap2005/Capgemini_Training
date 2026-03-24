@@ -3,9 +3,12 @@ package com.cms.departmentproject.entity;
 
 
 import jakarta.persistence.*;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @Table(name = "department")
+
+@XmlRootElement
 public class Department {
 
     @Id

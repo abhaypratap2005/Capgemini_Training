@@ -2,6 +2,9 @@ package com.cms.studentproject.controller;
 
 import com.cms.studentproject.model.Student;
 import com.cms.studentproject.repository.StudentRepository;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -44,6 +47,15 @@ public class StudentController {
 
     @DeleteMapping("/{id}")
     public void deleteStudent(@PathVariable Long id){
+
         repo.deleteById(id);
     }
+//
+//    public ResponseEntity<Student> updateUser (@RequestBody Student student){
+//        if(!getStudents().containsKey(student.getId())){
+//            return ResponseEntity.status(HttpStatus.NOT_FOUND);
+//        } else {
+    // ResponseEntity .status(HTTPstatus.NOT_FOUND).build();
+    //return reponseEntity.ok(updated);
+//    }
 }

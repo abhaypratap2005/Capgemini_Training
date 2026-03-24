@@ -15,29 +15,33 @@ import java.util.List;
 @Service
 public class BookingService {
 
-    @Autowired
+
     private BookingRepo bookingrepo;
 
-    @Autowired
+
     private CabRepo cabrepo;
 
-    @Autowired
+
     private EmployeeRepo emprepo;
 
     public Booking allocateCab(List<Long> employeeIds, Long cabId, LocalDate date) {
 
+        if (cabId==null) {
+            throw new IllegalArgumentException("Employee IDs cannot be null or empty");
+        }
+
         Cab cab = cabrepo.findById(cabId)
-                .orElseThrow(() -> new RuntimeException("Cab not found with ID: " + cabId));
+                .orElseThrow(() -> new IllegalArgumentException("Cab not found with ID: " + cabId));
 
         List<Employee> employees = emprepo.findAllById(employeeIds);
 
 
         if(employees.size() != employeeIds.size()) {
-            throw new RuntimeException("One or more employees not found");
+            throw new IllegalArgumentException("One or more employees not found");
         }
 
         if (employees.size() > cab.getCapacity()) {
-            throw new RuntimeException("Cab capacity exceeded");
+            throw new IllegalArgumentException("Cab capacity exceeded");
         }
 
         Booking booking = new Booking();
